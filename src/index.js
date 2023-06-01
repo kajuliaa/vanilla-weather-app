@@ -97,31 +97,8 @@ function search(city){
   axios.get(apiUrl).then(displayTemperature);
 }
 
-function showFahrenheitTemperature(event){
-  event.preventDefault();
-  celsiuslink.classList.remove("active");
-  fahrenheitlink.classList.add("active");
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round((celsiusTemperature * 9/5) + 32);
-}
-
-function showCelsiusTemperature(event){
-  event.preventDefault();
-  fahrenheitlink.classList.remove("active");
-  celsiuslink.classList.add("active");
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
 
 search("Bamberg");
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
-
-let fahrenheitlink = document.querySelector("#fahrenheit-link");
-fahrenheitlink.addEventListener("click", showFahrenheitTemperature);
-
-let celsiusTemperature = null;
-
-let celsiuslink = document.querySelector("#celsius-link");
-celsiuslink.addEventListener("click", showCelsiusTemperature);
